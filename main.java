@@ -2,15 +2,14 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        String str1 = args[0];
-        String str2 = args[1];
-        System.out.printf("%s\n", str1);
-        System.out.printf("%s\n", str2);
-        System.out.printf("%s\n", check(str1, str2));
+        System.out.printf("%s\n", check(args));
 
     }
     
-    private static boolean check(String s1, String s2) {
+    private static boolean check(String[] args) throws IllegalArgumentException {
+        if (args.length != 2) throw new IllegalArgumentException("Wrong Arguments! Need 2 arguments");
+        String s1 = args[0];
+        String s2 = args[1];
         if (s2.length() != s1.length()) return false;
         if (s1 == null || s2 == null) return false;
         int[] map = new int[256];
